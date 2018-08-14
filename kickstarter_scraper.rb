@@ -12,7 +12,11 @@ def create_project_hash
   # percent_funded: # percent_funded: project.css("ul.project-stats li.first.funded strong").text.gsub("%","").to_i
 
   kickstarter = Nokogiri::HTML(html)
-  binding.pry
+  projects = {}
+
+  kickstarter.css("li.project.grid_4").each do |project|
+    projects[project] = {}
+  end
 end
 
 create_project_hash
